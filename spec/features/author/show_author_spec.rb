@@ -14,4 +14,9 @@ describe "Show author page", type: :feature do
     expect(page).to have_text("Alan Turing")
     expect(page).to have_text("http://wikipedia.de/Alan_Turing")
   end
+
+  it "should have a link to 'new_author_path'" do
+    visit authors_path
+    expect(page).to have_link "New", href: new_author_path
+  end
 end
