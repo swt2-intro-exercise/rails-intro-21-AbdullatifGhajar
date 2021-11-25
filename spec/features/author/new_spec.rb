@@ -48,7 +48,7 @@ describe "New author page", type: :feature do
     fill_in "author[homepage]", with: 'http://wikipedia.org/Alan_Turing'
     find('input[type="submit"]').click
 
-    expect(page).to have_text("invalid input")
+    expect(page).to have_text("error")
   end
 
   it "should not save the new author if last name is missing" do
