@@ -25,10 +25,21 @@ describe "Show authors index page", type: :feature do
     expect(page).to have_link "Details", href: author_path(author.id)
   end
 
-  it "should have a link edit each existing author" do
+  it "should have a link for editting each existing author" do
     author = create :author
     visit authors_path
 
-    expect(page).to have_link nil, href: edit_author_path(author.id)
+    expect(page).to have_link "Edit", href: edit_author_path(author.id)
+  end
+
+  
+  it "should have a link for deleting each author" do
+    author = create :author
+    visit authors_path
+
+    click_on("Delete")
+
+    author2 = Author.where(id: author.id).take
+    expect(author2).to be_nil
   end
 end

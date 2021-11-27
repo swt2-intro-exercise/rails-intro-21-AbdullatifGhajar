@@ -10,7 +10,11 @@
   <tr>
     <td><%= author.name %></td>
     <td><%= author.homepage %></td>
-    <td><%= link_to "Details", author_path(author.id) %>, <%= link_to "Edit", edit_author_path(author.id) %></td>
+    <td>
+      <%= link_to "Details", author_path(author.id) %>,
+      <%= link_to "Edit", edit_author_path(author.id) %>,
+      <%= link_to "Delete", author_path(author.id), method: :delete %>
+    </td>
   </tr>
   <% end %>
 </table>
