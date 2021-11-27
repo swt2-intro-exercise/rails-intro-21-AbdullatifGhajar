@@ -1,0 +1,23 @@
+<%= form_with(model: @author, local: true) do |form| %>
+  <p>
+    <%= form.label :first_name %><br>
+    <%= form.text_field :first_name %>
+  </p>
+
+  <p>
+    <%= form.label :last_name %><br>
+    <%= form.text_field :last_name %>
+    <% @author.errors.full_messages_for(:last_name).each do |message| %>
+      <lu><%= "error: " + message %></lu>
+    <% end %>
+  </p>
+
+  <p>
+    <%= form.label :homepage %><br>
+    <%= form.text_field :homepage %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
