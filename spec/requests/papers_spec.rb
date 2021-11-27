@@ -94,14 +94,17 @@ RSpec.describe "/papers", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          title: "COMPUTING MACHINERY",
+          venue: "Mind 50: 433-460",
+          year: 1955,
+        }
       }
 
       it "updates the requested paper" do
         paper = Paper.create! valid_attributes
         patch paper_url(paper), params: { paper: new_attributes }
         paper.reload
-        skip("Add assertions for updated state")
       end
 
       it "redirects to the paper" do
