@@ -18,7 +18,7 @@ RSpec.describe Author, type: :model do
         expect(author).to_not be_valid
     end
 
-    it "should should be able to set attributes before after creating" do
+    it "should should be able to set attributes after creating" do
         first_name = "Alan"
         last_name = "Turing"
         homepage = 'http://wikipedia.org/Alan_Turing'
