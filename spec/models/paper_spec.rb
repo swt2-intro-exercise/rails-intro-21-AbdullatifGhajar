@@ -39,9 +39,20 @@ RSpec.describe Paper, type: :model do
     expect(paper).to_not be_valid
   end
 
-  it "should have a empty list of authors" do
+  it "should have a empty list of authors after creating" do
     paper = Paper.new
 
     expect(paper.authors).to eq([])
+  end
+
+  it "should has references to its authors" do
+    paper = create :paper
+    author = create :author
+
+    expect(paper.authors.size).to eq(1) 
+
+    expect(paper.authors[0].first_name).to eq(author.first_name) 
+    expect(paper.authors[0].last_name).to eq(author.last_name)
+    expect(paper.authors[0].homepage).to eq(author.homepage) 
   end
 end
